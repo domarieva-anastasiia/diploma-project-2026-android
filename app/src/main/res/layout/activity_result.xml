@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:background="@color/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearLayout2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:padding="16dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.222"-->
+<!--        tools:layout_editor_absoluteX="16dp">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/before_processing"-->
+<!--            android:textColor="@color/green"-->
+<!--            android:fontFamily="@font/montserrat_alternates_regular"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/beforeImage" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/beforeImage"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="150dp" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/after_processing"-->
+<!--            android:textColor="@color/green"-->
+<!--            android:fontFamily="@font/montserrat_alternates_regular"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/afterImage" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/afterImage"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="150dp" />-->
+
+<!--    </LinearLayout>-->
+
+    <!-- Контейнер для підписів -->
+    <LinearLayout
+        android:id="@+id/labelsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@+id/sliderContainer"
+        app:layout_constraintEnd_toEndOf="@+id/sliderContainer"
+        app:layout_constraintStart_toStartOf="@+id/sliderContainer"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_alternates_regular"
+            android:gravity="center"
+            android:text="@string/before_for_slider"
+            android:textColor="@color/gray_green"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_alternates_regular"
+            android:gravity="center"
+            android:text="@string/after_for_slider"
+            android:textColor="@color/gray_green"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/sliderContainer"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toTopOf="@+id/sourceButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- AFTER -->
+        <ImageView
+            android:id="@+id/afterImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter" />
+
+        <!-- BEFORE (буде обрізатись) -->
+        <ImageView
+            android:id="@+id/beforeImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter" />
+
+        <!-- Лінія-повзунок -->
+        <View
+            android:id="@+id/sliderLine"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/sourceButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sliderContainer">
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_green"
+            android:fontFamily="@font/montserrat_alternates_regular"
+            android:text="@string/save"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/background"
+            android:fontFamily="@font/montserrat_alternates_regular"
+            android:text="@string/main_screen"
+            android:textColor="@color/green" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

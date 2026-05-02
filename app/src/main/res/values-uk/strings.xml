@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SuperResolutionApp</string>
+    <string name="main_screen">Головна</string>
+    <string name="history">Історія</string>
+    <string name="gallery">Галерея</string>
+    <string name="camera">Камера</string>
+    <string name="improve">Покращити якість</string>
+    <string name="cancel">Скасувати</string>>
+    <string name="splash">Завантаження…</string>
+    <string name="processing_text">В черзі на виконання…</string>
+    <string name="save">Завантажити результат</string>
+    <string name="before_processing">До обробки:</string>
+    <string name="after_processing">Після обробки:</string>
+    <string name="before_for_slider">ДО</string>
+    <string name="after_for_slider">ПІСЛЯ</string>
+    <string name="status_pending">В черзі на виконання…</string>
+    <string name="status_started">Підготовка моделі…</string>
+    <string name="status_progress_low">Починаємо обробку…</string>
+    <string name="status_progress_high">Працюємо над текстурами…</string>
+    <string name="status_success">Майже готово…</string>
+    <string name="status_failure">Помилка</string>
+    <string name="status_revoked">Скасовано</string>
+    <string name="change_language">Змінити мову</string>
+</resources>

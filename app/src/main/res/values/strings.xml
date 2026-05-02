@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SuperResolutionApp</string>
+    <string name="main_screen">Main</string>
+    <string name="history">History</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="improve">Improve</string>
+    <string name="cancel">Cancel</string>
+    <string name="splash">Loading…</string>
+    <string name="processing_text">Waiting in queue…</string>
+    <string name="save">Download the result</string>
+    <string name="before_processing">Before processing:</string>
+    <string name="after_processing">After processing:</string>
+    <string name="before_for_slider">BEFORE</string>
+    <string name="after_for_slider">AFTER</string>
+    <string name="status_pending">Waiting in queue…</string>
+    <string name="status_started">Model preparation…</string>
+    <string name="status_progress_low">Start processing…</string>
+    <string name="status_progress_high">Working with textures…</string>
+    <string name="status_success">Finalizing…</string>
+    <string name="status_failure">Error</string>
+    <string name="status_revoked">Cancelled</string>
+    <string name="change_language">Change language</string>
+    <string name="language_uk" translatable="false">Українська (UA)</string>
+    <string name="language_en" translatable="false">English (EN)</string>
+</resources>
