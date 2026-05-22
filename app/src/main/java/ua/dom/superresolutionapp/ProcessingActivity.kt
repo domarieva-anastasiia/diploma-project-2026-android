@@ -3,6 +3,7 @@ package ua.dom.superresolutionapp
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.drawable.AnimationDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.Looper
@@ -29,12 +30,14 @@ import okio.sink
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 import android.os.Handler
+import android.widget.ImageView
 
 
 class ProcessingActivity : AppCompatActivity() {
 
     private lateinit var progressBar: ProgressBar
     private lateinit var selectedImageUri: Uri
+    private lateinit var flowerImageView: ImageView
     private var jobId: String? = null
     private var isCancelled = false
     private var isPolling = true
@@ -49,6 +52,9 @@ class ProcessingActivity : AppCompatActivity() {
         window.statusBarColor = resources.getColor(R.color.gray_green, theme)
         setContentView(R.layout.activity_processing)
 
+        flowerImageView = findViewById(R.id.flowerImageView)
+        flowerImageView.setImageResource(R.drawable.flower_animation_loop)
+
         val cancelButton = findViewById<Button>(R.id.cancelButton)
         cancelButton.setOnClickListener {
             isCancelled = true
@@ -57,7 +63,7 @@ class ProcessingActivity : AppCompatActivity() {
 
             jobId?.let {
                 val request = Request.Builder()
-                    .url("http://192.168.0.102:5000/cancel/$it")
+                    .url("https://srgan-domarieva.up.railway.app/cancel/$it")
                     .post(RequestBody.create(null, ByteArray(0)))
                     .build()
 
@@ -80,6 +86,14 @@ class ProcessingActivity : AppCompatActivity() {
             finish()
         }
 
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            val processingAnimation = flowerImageView.drawable as? AnimationDrawable
+            processingAnimation?.start()
+        }
     }
 
     private fun uriToFile(uri: Uri): File {
@@ -106,7 +120,7 @@ class ProcessingActivity : AppCompatActivity() {
             .build()
 
         val request = Request.Builder()
-            .url("http://192.168.0.102:5000/enhance")
+            .url("https://srgan-domarieva.up.railway.app/enhance")
             .post(requestBody)
             .build()
 
@@ -145,7 +159,7 @@ class ProcessingActivity : AppCompatActivity() {
     private fun checkStatus() {
 
         val request = Request.Builder()
-            .url("http://192.168.0.102:5000/status/$jobId")
+            .url("https://srgan-domarieva.up.railway.app/status/$jobId")
             .get()
             .build()
 
@@ -165,6 +179,8 @@ class ProcessingActivity : AppCompatActivity() {
 
                     if (status == "SUCCESS") {
                         progressBar.progress = 100
+                        val processingAnimation = flowerImageView.drawable as? AnimationDrawable
+                        processingAnimation?.stop()
                     }
                 }
 
@@ -207,7 +223,7 @@ class ProcessingActivity : AppCompatActivity() {
     }
 
     private fun getResult(downloadUrl: String) {
-        val baseUrl = "http://192.168.0.102:5000"
+        val baseUrl = "https://srgan-domarieva.up.railway.app/"
         val fullUrl = "$baseUrl$downloadUrl"
 
         val request = Request.Builder()

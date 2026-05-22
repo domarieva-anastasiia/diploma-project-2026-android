@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var cameraLauncher: ActivityResultLauncher<Uri>
     private var photoUri: Uri? = null
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
-    val url = "http://192.168.0.102:5000/enhance"
+    val url = "https://srgan-domarieva.up.railway.app/enhance"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

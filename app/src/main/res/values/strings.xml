@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SuperResolutionApp</string>
+    <string name="app_name" translatable="false">PetalPic</string>
     <string name="main_screen">Main</string>
     <string name="history">History</string>
     <string name="gallery">Gallery</string>
